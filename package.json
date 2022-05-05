@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier --write {*.js,src/**/*.{js,jsx}}",
+    "lint": "eslint src/ --fix"
   },
   "keywords": [],
   "author": "Leonardo Puebla <leonardo38361@gmail.com>",
@@ -16,6 +18,15 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "prettier": "^2.6.2",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
