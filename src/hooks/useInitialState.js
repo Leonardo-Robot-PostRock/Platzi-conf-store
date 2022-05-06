@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import initialState from '../useInitialState';
+import initialState from '../initialState';
 
 
 const useInitialState = () => {
@@ -15,7 +15,7 @@ const useInitialState = () => {
     const removeFromCart = (payload) => {
         setState({
             ...state,
-            cart: state.cart.filter(item => { return (item.id !== payload.id) })
+            cart: state.cart.filter(item => (item.id !== payload.id))
         })
     }
 
