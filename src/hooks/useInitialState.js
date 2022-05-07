@@ -15,7 +15,7 @@ const useInitialState = () => {
     const removeFromCart = (payload) => {
         setState({
             ...state,
-            cart: state.cart.filter(item => (item.id !== payload.id))
+            cart: state.cart.filter(item => item.cartId !== payload)
         })
     }
 

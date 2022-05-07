@@ -10,7 +10,9 @@ const Products = () => {
   } = useContext(AppContext);
 
   const handleAddToCart = (product) => () => {
-    addToCart(product);
+    const random = Math.floor(Math.random() * 1000);
+    const newProduct = { ...product, cartId: `${product.id}-${random}` };
+    addToCart(newProduct);
   };
 
   return (
@@ -20,7 +22,8 @@ const Products = () => {
           <Product
             key={product.id}
             product={product}
-            handleAddToCart={handleAddToCart} />
+            handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
     </div>

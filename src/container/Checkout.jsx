@@ -9,8 +9,8 @@ const Checkout = () => {
     removeFromCart,
   } = useContext(AppContenxt);
 
-  const handleRemove = (product) => () => {
-    removeFromCart(product);
+  const handleRemove = (product, i) => () => {
+    removeFromCart(product, i);
   };
 
   const handleSumTotal = () => {
@@ -23,14 +23,20 @@ const Checkout = () => {
   return (
     <div className="Checkout">
       <div className="Checkout-content">
-        <h3>{cart.lenght > 0 ? <h3>Lista de pedidos:</h3> : <h3>Sin pedidos...</h3>}</h3>
+        <div>
+          {cart.lenght > 0 ? (
+            <h3>Lista de pedidos:</h3>
+          ) : (
+            <h3>Sin pedidos...</h3>
+          )}
+        </div>
         {cart.map((item) => (
-          <div className="Checkout-item">
+          <div key={item.cartId} className="Checkout-item">
             <div className="Checkout-element">
               <h4>{item.title}</h4>
               <span>{item.price}</span>
             </div>
-            <button type="button" onClick={handleRemove(item)}>
+            <button type="button" onClick={handleRemove(item.cartId)}>
               <i className="fas fa-trash-alt" title="eliminar" />
             </button>
           </div>
