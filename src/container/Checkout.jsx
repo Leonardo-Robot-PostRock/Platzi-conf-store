@@ -9,8 +9,8 @@ const Checkout = () => {
     removeFromCart,
   } = useContext(AppContenxt);
 
-  const handleRemove = (product, i) => () => {
-    removeFromCart(product, i);
+  const handleRemove = (product) => () => {
+    removeFromCart(product);
   };
 
   const handleSumTotal = () => {
