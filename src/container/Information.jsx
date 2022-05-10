@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import '../styles/components/Information.css';
 
@@ -9,22 +9,26 @@ const Information = () => {
     addToBuyer,
   } = useContext(AppContext);
   const form = useRef(null);
+  const navigate = useNavigate();
+
+  
 
   const handleSubmit = () => {
     const formData = new FormData(form.current);
     const buyer = {
-      'name': formData.get('name'),
-      'email':formData.get('email'),
-      'address':formData.get('address'),
-      'apto':formData.get('apto'),
-      'city':formData.get('city'),
-      'country':formData.get('country'),
-      'state':formData.get('state'),
-      'cp':formData.get('cp'),
-      'phone':formData.get('phone'),
-    }
+      name: formData.get('name'),
+      email: formData.get('email'),
+      address: formData.get('address'),
+      apto: formData.get('apto'),
+      city: formData.get('city'),
+      country: formData.get('country'),
+      state: formData.get('state'),
+      cp: formData.get('cp'),
+      phone: formData.get('phone'),
+    };
     addToBuyer(buyer);
-  }
+    navigate('/checkout/payment');
+  };
 
   return (
     <div className="Information">
@@ -92,14 +96,16 @@ const Information = () => {
             <Link to="/checkout">Go Back</Link>
           </div>
           <div className="Information-next">
-            <button type='button' onClick={handleSubmit}>Pay</button>
+            <button type="button" onClick={handleSubmit}>
+              Pay
+            </button>
           </div>
         </div>
       </div>
       <div className="Information-sidebar">
         <h3>Order Summary:</h3>
         {cart.map((item) => (
-          <div className="Information-item" key={item.cardId}>
+          <div className="Information-item" key={item.cartId}>
             <div className="Information-element">
               <h4>{item.title}</h4>
               <span>${item.price}</span>
