@@ -3,18 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { PayPalButton } from 'react-paypal-button';
 import AppContext from '../context/AppContext';
 import { handleSumTotal } from '../utils/index';
+import config  from '../../config/index';
 import '../styles/components/Payment.css';
 
+
 const Payment = () => {
-  const navigate = useNavigate();
   const {
     state: { cart, buyer },
     addNewOrder,
   } = useContext(AppContext);
+  const navigate = useNavigate();
+  const clientID = config.clientIdPaypal;
 
   const paypalOptions = {
-    clientId:
-      'AfaGcYEob6iRumL8lkJPexWoSv4homboEEBcQhGc0nrnzrhY6Mo0iRWBL2B5y4ix1399m9QpFAVq_ywD',
+    clientId: clientID,
     intent: 'capture',
     currency: 'USD',
   };
