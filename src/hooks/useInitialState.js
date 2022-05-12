@@ -26,10 +26,18 @@ const useInitialState = () => {
         })
     }
 
+    const addNewBuyer = payload => {
+        setState({
+            ...setState,
+            orders: [...state.orders, payload]
+        })
+    }
+
     return {
         addToCart,
         removeFromCart,
         addToBuyer,
+        addNewBuyer,
         state
     }
 }
