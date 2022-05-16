@@ -6,7 +6,7 @@ import '../styles/components/Map.css';
 const Icon =
   'https://i.pinimg.com/474x/36/dd/16/36dd1601f1b0e6642b3556d827e1c0aa.jpg';
 
-const position = [51.505, -0.09];
+const position = [-32.8961554, -68.8459221];
 
 const Map = () => (
   <MapContainer center={position} zoom={13}>
