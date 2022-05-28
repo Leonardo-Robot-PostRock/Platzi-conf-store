@@ -30,6 +30,7 @@
             "error",
             "absolute-first"
         ],
+        "react/jsx-no-useless-fragment": false,
         "import/newline-after-import": "error"
     },
     "globals": {
